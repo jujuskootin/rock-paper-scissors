@@ -15,3 +15,7 @@ function getHumanChoice() {
     
 }
 console.log(getHumanChoice(humChoice))
+
+let humanScore = 0
+
+let computerScore = 0
