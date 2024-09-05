@@ -22,24 +22,26 @@ let computerScore = 0
 
 
 function playRound(humanChoice, computerChoice) {
-if (humanChoice === 'rock' && computerChoice === 'scissors')
-  console.log('Your score ' +humanScore + 1, 'You win!')
-else if (humanChoice === 'rock' && computerChoice === 'paper')
-  console.log('Computer Score ' +computerScore + 1, 'You lose!')
-else if (humanChoice === 'paper' && computerChoice === 'rock')
-  console.log('Your score ' +humanScore + 1, 'You win!')
-else if (humanChoice === 'paper' && computerChoice === 'scissors')
-  console.log('Computer Score ' +computerScore + 1, 'You lose!')
-else if (humanChoice === 'scissors' && computerChoice === 'paper')
-  console.log('Your score ' +humanScore + 1, 'You win!')
-else if (humanChoice === 'scissors' && computerChoice === 'rock')
-  console.log('Computer Score ' +computerScore + 1, 'You lose!')
-else if (humanChoice == computerChoice)
-  console.log('It\'s a tie!')
-}
-
 console.log('You chose ' + getHumanChoice(humanChoice))
 console.log('Computer chose ' + getComputerChoice(computerChoice))
+if (humanChoice == computerChoice)
+  console.log('It\'s a tie!')
+else if (humanChoice === 'rock' && computerChoice === 'scissors')
+  console.log('You win!'), humanScore++
+else if (humanChoice === 'rock' && computerChoice === 'paper')
+  console.log('You lose!'), computerScore++
+else if (humanChoice === 'paper' && computerChoice === 'rock')
+  console.log('You win!'), humanScore++
+else if (humanChoice === 'paper' && computerChoice === 'scissors')
+  console.log('You lose!'), computerScore++
+else if (humanChoice === 'scissors' && computerChoice === 'paper')
+  console.log('You win!'), humanScore++
+else if (humanChoice === 'scissors' && computerChoice === 'rock')
+  console.log('You lose!'), computerScore++
+console.log('Your score ' + humanScore)
+console.log('Computer score ' + computerScore)
+}
+
 
 
 const humanSelection = getHumanChoice();
