@@ -1,62 +1,67 @@
 
 function getComputerChoice() {
-const computerChoice = Math.floor(Math.random() * 3) 
-  if (computerChoice === 0)
-    return('rock')
-  else if (computerChoice === 1)
-    return('paper')
-  else if (computerChoice === 2)
-    return('scissors')
-  }
-
-
-
+  let computerChoice = Math.floor(Math.random() * 3) 
+    if (computerChoice === 0)
+      return('rock')
+    else if (computerChoice === 1)
+      return('paper')
+    else if (computerChoice === 2)
+      return('scissors')
+}
+   
 function getHumanChoice() {
-  const humanChoice = prompt('Make your choice').toLowerCase()
-    return(humanChoice)
-
+ let humanChoice = prompt('Make your choice').toLowerCase()
+  return(humanChoice)
 }
 
+function endGame(){
+  if (humanScore < computerScore)
+    alert('You Lose! Computer wins!')
+  else if (humanScore > computerScore)
+    alert('You win!!!')
+  else if (humanScore === computerScore)
+    alert('It\'s a tie')
+console.log('Refresh the web page to play again')
+}
+function playGame(humanScore, computerScore) {
+  for (let i = 1; i < 6; i++) {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+  }
+  endGame(humanScore, computerScore)
+}
+  
 
 let humanScore = 0
 let computerScore = 0
+  //Create a new function named playGame.
+  //Move your playRound function and score variables so that they’re declared inside of the new playGame function
+  //Play 5 rounds by calling playRound 5 times
+  
 
 
-function playRound(humanChoice, computerChoice) {
-console.log('You chose ' + (humanChoice))
-console.log('Computer chose ' + (computerChoice))
-if (humanChoice == computerChoice)
-  console.log('It\'s a tie!')
-else if (humanChoice === 'rock' && computerChoice === 'scissors')
-  console.log('You win!'), humanScore++
-else if (humanChoice === 'rock' && computerChoice === 'paper')
-  console.log('You lose!'), computerScore++
-else if (humanChoice === 'paper' && computerChoice === 'rock')
-  console.log('You win!'), humanScore++
-else if (humanChoice === 'paper' && computerChoice === 'scissors')
-  console.log('You lose!'), computerScore++
-else if (humanChoice === 'scissors' && computerChoice === 'paper')
-  console.log('You win!'), humanScore++
-else if (humanChoice === 'scissors' && computerChoice === 'rock')
-  console.log('You lose!'), computerScore++
-console.log('Your score ' + humanScore)
-console.log('Computer score ' + computerScore)
+  
+
+playGame(humanScore, computerScore)
+
+function playRound(humanSelection, computerSelection) {
+  console.log('You chose ' + (humanSelection))
+  console.log('Computer chose ' + (computerSelection))
+  if (humanSelection == computerSelection)
+    console.log('It\'s a tie!')
+  else if (humanSelection === 'rock' && computerSelection === 'scissors')
+    console.log('You win!'), humanScore++
+  else if (humanSelection === 'rock' && computerSelection === 'paper')
+    console.log('You lose!'), computerScore++
+  else if (humanSelection === 'paper' && computerSelection === 'rock')
+    console.log('You win!'), humanScore++
+  else if (humanSelection === 'paper' && computerSelection === 'scissors')
+    console.log('You lose!'), computerScore++
+  else if (humanSelection === 'scissors' && computerSelection === 'paper')
+    console.log('You win!'), humanScore++
+  else if (humanSelection === 'scissors' && computerSelection === 'rock')
+    console.log('You lose!'), computerScore++
+  console.log('Your score ' + humanScore)
+  console.log('Computer score ' + computerScore)
 }
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-
-
-//Create a new function named playGame.
-//Move your playRound function and score variables so that they’re declared inside of the new playGame function
-//Play 5 rounds by calling playRound 5 times
-
-function playGame(humanScore, computerScore) {
-playRound(humanSelection, computerSelection)
-prompt('Round two' ); playRound(humanSelection, computerSelection)
-
-}
-
-playGame(humanSelection, computerSelection);
